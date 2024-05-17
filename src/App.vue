@@ -68,7 +68,7 @@ const copyrights = ref([
             </div>
           </div>
           <div class="w-full h-1/2 lg:w-1/2 lg:h-full p-1">
-            <div class="w-full h-full p-1 flex flex-col text-[#e3e4e6] overflow-auto no-scrollba">
+            <div class="w-full h-full p-1 flex flex-col text-[#e3e4e6] overflow-auto">
               <div class="w-full flex-1 flex flex-col justify-center items-center gap-2">
                 <div class="w-full flex flex-col justify-start items-start rounded" v-for="issue in issues">
                   <a class=" px-2 py-1 rounded lg:text-lg line-clamp-1 text-[#7281ff] hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0"
