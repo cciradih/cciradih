@@ -4,11 +4,11 @@ import { faBilibili, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { ref } from 'vue'
 const issues = ref([])
-const url = 'https://api.github.com/repos/cciradih/issues/issues?state=open&creator=cciradih&per_page=5'
-fetch(url)
+const issuesApi = 'https://api.github.com/repos/cciradih/issues/issues?state=open&creator=cciradih&per_page=5'
+fetch(issuesApi)
   .then(repsonse => repsonse.json())
   .then(json => issues.value = json)
-const links = ref([
+const links = [
   {
     url: 'https://space.bilibili.com/2078718',
     icon: faBilibili
@@ -21,8 +21,8 @@ const links = ref([
     url: 'mailto:trash@cciradih.eu.org',
     icon: faEnvelope
   }
-])
-const tools = ref([
+]
+const tools = [
   {
     link: 'https://vuejs.org/',
     title: 'Powered by Vue.js'
@@ -31,8 +31,8 @@ const tools = ref([
     link: 'https://tailwindcss.com/',
     title: 'Designed by Tailwind CSS'
   },
-])
-const copyrights = ref([
+]
+const copyrights = [
   {
     link: 'https://www.gnu.org/licenses/gpl-3.0-standalone.html',
     title: 'GPLv3'
@@ -45,7 +45,10 @@ const copyrights = ref([
     link: 'https://cciradih.eu.org',
     title: '@ 2023 - ' + new Date().getFullYear() + ' Cciradih.eu.org & Heartless.'
   }
-])
+]
+const username = 'Cciradih'
+const title = 'Full Stack Developer'
+const issuesUrl = 'https://github.com/cciradih/cciradih/issues'
 </script>
 
 <template>
@@ -62,9 +65,9 @@ const copyrights = ref([
         class="relative w-full flex-1 rounded before:absolute before:inset-1 before:rounded before:bg-[#0f1011] before:z-10 after:absolute after:w-[300%] after:h-[300%] after:-top-full after:-left-full after:bg-[conic-gradient(#0f1011,#5e69d1,#0f1011)] after:animate-spin overflow-hidden">
         <div class="relative w-full h-full flex flex-col lg:flex-row justify-center items-center z-20">
           <div class="w-full h-1/2 lg:w-1/2 lg:h-full p-1">
-            <div class="w-full h-full p-1 flex flex-col justify-center items-center gap-1.5 lg:gap-2 bg-[#161618]">
-              <div class="text-4xl lg:text-5xl font-serif">Cciradih</div>
-              <div class="text-xl lg:text-2xl font-mono font-light text-[#e3e4e6]">Full Stack Developer</div>
+            <div class="w-full h-full p-1 flex flex-col justify-center items-center gap-1.5 lg:gap-2 bg-[#232326]">
+              <div class="text-4xl lg:text-5xl font-serif">{{ username }}</div>
+              <div class="text-xl lg:text-2xl font-mono font-light text-[#e3e4e6]">{{ title }}</div>
             </div>
           </div>
           <div class="w-full h-1/2 lg:w-1/2 lg:h-full p-1">
@@ -76,7 +79,7 @@ const copyrights = ref([
                 </div>
               </div>
               <a class="p-2 lg:p-4 self-end lg:text-lg text-[#e3e4e6] hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0"
-                target="_blank" href="https://github.com/cciradih/cciradih/issues">阅读更多</a>
+                target="_blank" :href="issuesUrl">阅读更多</a>
             </div>
           </div>
         </div>
