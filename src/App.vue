@@ -2,12 +2,15 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBilibili, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 const issues = ref([])
-const issuesApi = 'https://api.github.com/repos/cciradih/issues/issues?state=open&creator=cciradih&per_page=5'
-fetch(issuesApi)
-  .then(repsonse => repsonse.json())
-  .then(json => issues.value = json)
+onMounted(async () => {
+  const issuesApi = 'https://api.github.com/repos/cciradih/issues/issues?state=open&creator=cciradih&per_page=5'
+  const response = await fetch(issuesApi)
+  const json = await response.json()
+  issues.value = json
+})
+const readMore = '阅读更多'
 const links = [
   {
     url: 'https://space.bilibili.com/2078718',
@@ -43,7 +46,7 @@ const copyrights = [
   },
   {
     link: 'https://cciradih.eu.org',
-    title: '@ 2023 - ' + new Date().getFullYear() + ' Cciradih.eu.org & Heartless.'
+    title: '@ 2016 - ' + new Date().getFullYear() + ' Cciradih & Heartless.'
   }
 ]
 const username = 'Cciradih'
@@ -79,7 +82,7 @@ const issuesUrl = 'https://github.com/cciradih/cciradih/issues'
                 </div>
               </div>
               <a class="p-2 lg:p-4 self-end lg:text-lg text-[#e3e4e6] hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0"
-                target="_blank" :href="issuesUrl">阅读更多</a>
+                target="_blank" :href="issuesUrl">{{ readMore }}</a>
             </div>
           </div>
         </div>
