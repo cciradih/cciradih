@@ -46,7 +46,7 @@ const copyrights = [
   },
   {
     link: 'https://cciradih.eu.org',
-    title: '@ 2016 - ' + new Date().getFullYear() + ' Cciradih & Heartless.'
+    title: '@ 2016 - ' + new Date().getFullYear() + ' Cciradih & 💞 with Clytze.'
   }
 ]
 const username = 'Cciradih'
@@ -60,28 +60,28 @@ const issuesUrl = 'https://github.com/cciradih/cciradih/issues'
       <div class="w-full pt-8 lg:pt-16 flex justify-center items-center gap-8 lg:gap-16">
         <a :href="link.url" target="_blank" v-for="link in links">
           <FontAwesomeIcon
-            class="text-2xl lg:text-3xl text-[#e3e4e6] hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0"
+            class="text-2xl lg:text-3xl text-white hover:text-[#FF5C8A] transition-text duration-300 ease-in-out delay-0"
             :icon="link.icon" />
         </a>
       </div>
       <div
-        class="relative w-full flex-1 rounded before:absolute before:inset-1 before:rounded before:bg-[#0f1011] before:z-10 after:absolute after:w-[300%] after:h-[300%] after:-top-full after:-left-full after:bg-[conic-gradient(#0f1011,#5e69d1,#0f1011)] after:animate-spin overflow-hidden">
+        class="relative w-full flex-1 rounded before:absolute before:inset-1 before:rounded before:bg-[#0f1011] before:z-10 after:absolute after:w-[300%] after:h-[300%] after:-top-full after:-left-full after:bg-[conic-gradient(#FF0A54,#FF5C8A,#FF85A1,#FF5C8A,#FF0A54)] after:animate-spin overflow-hidden">
         <div class="relative w-full h-full flex flex-col lg:flex-row justify-center items-center z-20">
           <div class="w-full h-1/2 lg:w-1/2 lg:h-full p-1">
             <div class="w-full h-full p-1 flex flex-col justify-center items-center gap-1.5 lg:gap-2 bg-[#232326]">
-              <div class="text-4xl lg:text-5xl font-serif">{{ username }}</div>
-              <div class="text-xl lg:text-2xl font-mono font-light text-[#e3e4e6]">{{ title }}</div>
+              <div class="text-4xl lg:text-5xl font-serif text-white">{{ username }}</div>
+              <div class="text-xl lg:text-2xl font-mono font-light text-white">{{ title }}</div>
             </div>
           </div>
           <div class="w-full h-1/2 lg:w-1/2 lg:h-full p-1">
-            <div class="w-full h-full p-1 flex flex-col text-[#e3e4e6] overflow-auto">
+            <div class="w-full h-full p-1 flex flex-col text-white overflow-auto">
               <div class="w-full flex-1 flex flex-col justify-center items-center gap-2">
                 <div class="w-full flex flex-col justify-start items-start rounded" v-for="issue in issues">
-                  <a class=" px-2 py-1 rounded lg:text-lg line-clamp-1 text-[#7281ff] hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0"
+                  <a class=" px-2 py-1 rounded lg:text-lg line-clamp-1 text-[#F9BEC7] hover:text-[#FF5C8A] transition-text duration-300 ease-in-out delay-0"
                     target="_blank" :href="issue.html_url">{{ issue.title }}</a>
                 </div>
               </div>
-              <a class="p-2 lg:p-4 self-end lg:text-lg text-[#e3e4e6] hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0"
+              <a class="p-2 lg:p-4 self-end lg:text-lg text-[#F9BEC7] hover:text-[#FF5C8A] transition-text duration-300 ease-in-out delay-0"
                 target="_blank" :href="issuesUrl">{{ readMore }}</a>
             </div>
           </div>
@@ -90,12 +90,12 @@ const issuesUrl = 'https://github.com/cciradih/cciradih/issues'
       <div
         class="w-full pb-8 lg:pb-16 flex flex-col justify-center items-center gap-3 text-sm lg:text-base text-[#969799]">
         <div class="flex flex-col md:flex-row justify-center items-center md:divide-x md:divide-[#969799]">
-          <a class="px-2 hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0" target="_blank"
+          <a class="px-2 hover:text-[#FF5C8A] transition-text duration-300 ease-in-out delay-0" target="_blank"
             :href="tool.link" v-for="(tool, index) in tools" :key="index">{{ tool.title }}</a>
         </div>
         <div class="flex flex-col md:flex-row justify-center items-center md:divide-x md:divide-[#969799]">
-          <a class="px-2 hover:text-[#4f52b4] transition-text duration-300 ease-in-out delay-0" target="_blank"
-            :href="copyright.link" v-for="(copyright, index) in copyrights" :key="index">{{ copyright.title }}</a>
+          <a class="px-2 hover:text-[#FF5C8A] transition-text duration-300 ease-in-out delay-0" target="_blank"
+            :href="copyright.link" v-for="(copyright, index) in copyrights" :key="index" v-html="copyright.title"></a>
         </div>
       </div>
     </div>
